@@ -5,9 +5,9 @@ jobs:
     steps:
       - checkout
       - run:
-	  name: Install dependency
-	  command: |
-	    pip install -r requirements.txt
+          name: Install dependency
+          command: |
+            pip install -r requirements.txt
       - run:
           name: Run tests
           command: pytest test.py
