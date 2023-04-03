@@ -16,3 +16,26 @@ workflows:
   test:
     jobs:
       - test
+    workspaces:
+      create-pr:
+        paths:
+          - .
+      check-pr:
+        requires:
+          - test
+        filters:
+          branches:
+            only: main
+        parallelism: 1
+        steps:
+          - attach_workspace:
+              at: .
+          - run:
+              name: Check if all tests passed
+              command: |
+                if grep -q "FAILED" test-results.txt; then
+                  echo "Some tests failed, cannot merge!"
+                  exit 1
+                else
+                  echo "All tests passed, ready to merge!"
+                fi
