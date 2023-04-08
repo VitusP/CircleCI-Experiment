@@ -16,7 +16,7 @@ workflows:
   check-pr: 
     jobs:
       - test
-        filters: 
-          branches:
-            only:
-              - /initial-ci-*/
+          filters: 
+            branches:
+              only:
+                - /initial-ci-*/
