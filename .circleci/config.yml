@@ -13,6 +13,10 @@ jobs:
           command: pytest test.py
 workflows:
   version: 2
-  check-pr:
+  check-pr: 
     jobs:
       - test
+        filters: 
+          branches:
+            only:
+              - /initial-ci-*/
