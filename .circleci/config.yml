@@ -11,6 +11,10 @@ jobs:
       - run:
           name: Run tests
           command: pytest test.py
+      - run:
+          name: Connect to VPS
+          command: |
+          ssh -oStrictHostKeyChecking=no -v $USER@$IP "echo TESTING"
 workflows:
   version: 2
   check-pr: 
