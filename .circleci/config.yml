@@ -15,8 +15,4 @@ workflows:
   version: 2
   check-pr: 
     jobs:
-      - test: 
-          filters: 
-            branches:
-              only:
-                - /initial-ci-*/
+      - test
