@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Connect to VPS
           command: |
-            ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
+            ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd CircleCI-Experiment/; ./deploy.sh"
 
 workflows:
   version: 2
