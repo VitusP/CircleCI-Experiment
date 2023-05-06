@@ -11,12 +11,28 @@ jobs:
       - run:
           name: Run tests
           command: pytest test.py
+  deploy:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - checkout
+      - run:
+          name: Install dependency
+          command: |
+            pip install -r requirements.txt
       - run:
           name: Connect to VPS
           command: |
-            ssh -oStrictHostKeyChecking=no -v $USER@$IP "echo TESTING"
+            ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
+
 workflows:
   version: 2
   check-pr: 
     jobs:
       - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: main
