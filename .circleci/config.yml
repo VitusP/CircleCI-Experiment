@@ -17,11 +17,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependency
-          command: |
-            pip install -r requirements.txt
-      - run:
-          name: Connect to VPS
+          name: Deploy
           command: |
             ssh -oStrictHostKeyChecking=no -v $USER@$IP "cd CircleCI-Experiment/; ./deploy.sh"
 
