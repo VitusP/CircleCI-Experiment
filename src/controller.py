@@ -12,7 +12,8 @@ def portfolio():
 
 @app.route('/settings')
 def settings():
-    with open(os.path.join(os.getcwd(), 'src', 'templates', 'Home.md'), 'r') as f:
+    md_file = os.path.abspath(os.path.join(os.getcwd(), 'src', 'templates', 'Home.md'))
+    with open(md_file, 'r') as f:
         content = f.read()
         md = markdown.markdown(content)
     return render_template('index.html', content=md)

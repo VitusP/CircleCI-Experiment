@@ -10,7 +10,7 @@ jobs:
             pip install -r requirements.txt
       - run:
           name: Run tests
-          command: pytest test.py
+          command: pytest ./src/tests/test_controller.py
   deploy:
     docker:
       - image: cimg/python:3.8
