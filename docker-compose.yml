@@ -10,15 +10,15 @@ services:
       - .:/app
     environment:
       FLASK_APP: src/controller.py
-      FLASK_DEBUG: development
-# nginx:
-#     image: nginx:latest
-#     ports:
-#       - 80:80
-#       - 443:443
-#     volumes:
-#       - ./nginx.conf:/etc/nginx/nginx.conf
-#       - /etc/letsencrypt:/etc/letsencrypt
-#     depends_on:
-#       - app
-#     restart: always
+    restart: always
+nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - web
+    restart: always
