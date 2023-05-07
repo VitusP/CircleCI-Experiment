@@ -11,7 +11,7 @@ services:
     environment:
       FLASK_APP: src/controller.py
     restart: always
-nginx:
+  nginx:
     image: nginx:latest
     ports:
       - 80:80
