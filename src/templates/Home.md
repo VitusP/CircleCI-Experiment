@@ -10,9 +10,7 @@ the markdown file. There will be nginx server to serve the SSL certificate as we
 * Python Flask
 * Markdown library
 * DigitalOcean (Droplets)
+* GoDaddy for domain
+* NGINX
 
-### Packages
-``` 
-Flask
-Markdown
-```
+### [Vitus Putra](vitus.putra@gmail.com)
