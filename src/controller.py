@@ -17,6 +17,5 @@ def settings():
         md = markdown.markdown(content)
     return render_template('index.html', content=md)
 
-
 if __name__ == '__main__':
     app.run(debug=isDebug, host="0.0.0.0", port=8080)
