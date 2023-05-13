@@ -4,13 +4,20 @@ jobs:
       - image: cimg/python:3.8
     steps:
       - checkout
+      - run: mkdir ./test-results
       - run:
           name: Install dependency
           command: |
+            python -m venv venv
+            . venv/bin/activate
             pip install -r requirements.txt
       - run:
           name: Run tests
-          command: pytest ./src/tests/test_controller.py
+          command: |
+            . venv/bin/activate
+            pytest ./src/tests/test_controller.py --junitxml=test-results/junit.xml
+      - store_test_results:
+          path: test-results
   deploy:
     docker:
       - image: cimg/python:3.8
