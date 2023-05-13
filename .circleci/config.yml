@@ -7,10 +7,14 @@ jobs:
       - run:
           name: Install dependency
           command: |
+            python -m venv venv
+            . venv/bin/activate
             pip install -r requirements.txt
       - run:
           name: Run tests
-          command: pytest ./src/tests/test_controller.py
+          command: |
+          . venv/bin/activate
+          pytest ./src/tests/test_controller.py
   deploy:
     docker:
       - image: cimg/python:3.8
