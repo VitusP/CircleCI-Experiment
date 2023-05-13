@@ -13,8 +13,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-          . venv/bin/activate
-          pytest ./src/tests/test_controller.py
+            . venv/bin/activate
+            pytest ./src/tests/test_controller.py
   deploy:
     docker:
       - image: cimg/python:3.8
