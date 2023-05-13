@@ -16,6 +16,8 @@ jobs:
           command: |
             . venv/bin/activate
             pytest ./src/tests/test_controller.py --junitxml=test-results/junit.xml
+      - store_test_results:
+          path: test-results
   deploy:
     docker:
       - image: cimg/python:3.8
