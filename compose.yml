@@ -1,0 +1,16 @@
+version: '3'
+
+include:
+  - ./database/db-compose.yml
+services:
+  web:
+    build: .
+    ports:
+      - 8080
+    volumes:
+      - .:/app
+    environment:
+      FLASK_APP: src/controller.py
+    restart: always
+    depends_on:
+      - db

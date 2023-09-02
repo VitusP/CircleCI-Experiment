@@ -4,10 +4,10 @@
 git pull origin main
 
 # stop old run
-docker-compose down
+docker compose -f compose.yml -f production.yml stop
 
 # Run app locally
-docker-compose up -d
+docker compose -f compose.yml -f production.yml up -d --build
 
 # Check running container
 docker ps

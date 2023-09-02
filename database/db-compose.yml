@@ -1,0 +1,21 @@
+# create mysql container compose file
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: db.env.MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: db.env.MYSQL_DATABASE
+      MYSQL_USER: db.env.MYSQL_USER
+      MYSQL_PASSWORD: db.env.MYSQL_PASSWORD
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+# create docker compose db secret that reference db.env
+secrets:
+  db.env:
+    file: ./db.env
