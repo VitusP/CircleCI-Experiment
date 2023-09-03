@@ -12,6 +12,11 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - run:
+          name: Debug
+          command: |
+            pwd
+            ls -lart ./src/templates/
+      - run:
           name: Run tests
           command: |
             . venv/bin/activate
