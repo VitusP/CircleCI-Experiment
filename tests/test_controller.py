@@ -1,6 +1,5 @@
 import pytest
-from flask import template_rendered
-from controller import app
+from src.controller import app
 
 @pytest.fixture
 def client():
