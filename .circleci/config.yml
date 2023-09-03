@@ -15,7 +15,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            pytest ./src/tests/test_controller.py --junitxml=test-results/junit.xml
+            pytest ./tests/test_controller.py --junitxml=test-results/junit.xml
       - store_test_results:
           path: test-results
   deploy:
