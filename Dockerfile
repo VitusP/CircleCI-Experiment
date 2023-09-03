@@ -16,7 +16,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 8080
 
 # Run controller.py when the container launches
-CMD ["python", "src/controller.py"]
+CMD ["python", "-m", "src.run"]
 
 
 
