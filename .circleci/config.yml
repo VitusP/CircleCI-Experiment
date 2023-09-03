@@ -15,8 +15,6 @@ jobs:
           name: Debug
           command: |
             pwd
-            git branch
-            git pull
             ls -lart ./src/templates/
       - run:
           name: Run tests

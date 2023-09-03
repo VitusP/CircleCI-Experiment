@@ -12,7 +12,7 @@ def portfolio():
 
 @app.route('/settings')
 def settings():
-    md_file = os.path.join(os.path.dirname(__file__), 'templates/home.md')
+    md_file = os.path.join(os.path.dirname(__file__), 'templates/homepage.md')
     with open(md_file, 'r') as f:
         content = f.read()
         md = markdown.markdown(content)
