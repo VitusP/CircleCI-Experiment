@@ -1,6 +1,6 @@
 from flask import Flask
 import os
-from .controllers.controller import personal as personal_blueprint
+from .controllers.personal_controller import personal as personal_blueprint
 
 isDebug = os.environ.get('DEBUG', False)
 app = Flask(__name__)
